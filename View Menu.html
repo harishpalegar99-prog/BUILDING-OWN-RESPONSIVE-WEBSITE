@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Menu</title>
+<style>
+/* ===== Reset & Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #74ABE2, #5563DE);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Header ===== */
+header {
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    padding: 30px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ===== Category Title ===== */
+.category-title {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 6px solid #ff9966;
+    padding-left: 12px;
+    color: #fff;
+}
+
+/* ===== Menu Container ===== */
+.menu-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ===== Menu Card ===== */
+.menu-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    text-align: center;
+    color: #333;
+    transition: 0.3s ease;
+}
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.menu-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.menu-info {
+    padding: 20px;
+}
+.menu-info h3 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 8px;
+}
+.menu-info p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+.price {
+    color: #ff6f61;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff9966;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6f61;
+}
+
+/* ===== Fade Animation ===== */
+.menu-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.8s ease forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.menu-card:nth-child(1) { animation-delay: 0.1s; }
+.menu-card:nth-child(2) { animation-delay: 0.2s; }
+.menu-card:nth-child(3) { animation-delay: 0.3s; }
+.menu-card:nth-child(4) { animation-delay: 0.4s; }
+.menu-card:nth-child(5) { animation-delay: 0.5s; }
+.menu-card:nth-child(6) { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Our Delicious Menu 🍽️</h1>
+  <p>Fresh, Tasty & Made with Love </p>
+</header>
+
+<!-- Starters -->
+<h2 class="category-title">Starters</h2>
+<div class="menu-container">
+  <div class="menu-card">
+    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd" alt="Soup">
+    <div class="menu-info">
+      <h3>Hot & Sour Soup</h3>
+      <p>Spicy tangy soup to warm your appetite.</p>
+      <div class="price">₹120</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg" alt="Fries">
+    <div class="menu-info">
+      <h3>French Fries</h3>
+      <p>Crispy fries served with tangy ketchup.</p>
+      <div class="price">₹100</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg" alt="Spring Rolls">
+    <div class="menu-info">
+      <h3>Veg Spring Rolls</h3>
+      <p>Crunchy rolls filled with spicy veggies.</p>
+      <div class="price">₹130</div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Course -->
+<h2 class="category-title">Main Course</h2>
+<div class="menu-container">
+  <div class="menu-card">
+    <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" alt="Pizza">
+    <div class="menu-info">
+      <h3>Cheese Pizza</h3>
+      <p>Loaded with mozzarella and Italian herbs.</p>
+      <div class="price">₹250</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger">
+    <div class="menu-info">
+      <h3>Classic Chicken Burger</h3>
+      <p>Juicy grilled chicken with cheese & lettuce.</p>
+      <div class="price">₹220</div>
+    </div>
+  </div>
+  
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/7664088/pexels-photo-7664088.jpeg" alt="Pasta">
+    <div class="menu-info">
+      <h3>White Sauce Pasta</h3>
+      <p>Creamy pasta topped with fresh herbs.</p>
+      <div class="price">₹200</div>
+    </div>
+  </div>
+</div>
+
+<!-- Desserts -->
+<h2 class="category-title">Desserts</h2>
+<div class="menu-container">
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/25524075/pexels-photo-25524075.jpeg" alt="Cake">
+    <div class="menu-info">
+      <h3>Chocolate Lava Cake</h3>
+      <p>Warm chocolate cake with molten center.</p>
+      <div class="price">₹150</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/1294943/pexels-photo-1294943.jpeg" alt="Ice Cream">
+    <div class="menu-info">
+      <h3>Vanilla Ice Cream</h3>
+      <p>Creamy ice cream topped with choco syrup.</p>
+      <div class="price">₹90</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/27359377/pexels-photo-27359377.jpeg" alt="Brownie">
+    <div class="menu-info">
+      <h3>Fudge Brownie</h3>
+      <p>Warm brownie served with vanilla scoop.</p>
+      <div class="price">₹170</div>
+    </div>
+  </div>
+</div>
+
+<!-- Beverages -->
+<h2 class="category-title">Beverages</h2>
+<div class="menu-container">
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg" alt="Coffee">
+    <div class="menu-info">
+      <h3>Cappuccino</h3>
+      <p>Freshly brewed coffee with creamy foam.</p>
+      <div class="price">₹120</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/158053/fresh-orange-juice-squeezed-refreshing-citrus-158053.jpeg" alt="Juice">
+    <div class="menu-info">
+      <h3>Orange Juice</h3>
+      <p>Freshly squeezed, vitamin-rich juice.</p>
+      <div class="price">₹80</div>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="https://images.pexels.com/photos/434295/pexels-photo-434295.jpeg" alt="Smoothie">
+    <div class="menu-info">
+      <h3>Berry Smoothie</h3>
+      <p>Refreshing drink made with mixed berries.</p>
+      <div class="price">₹130</div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-dark"style="color:white!important;margin-bottom:20px;"onclick="window.location.href='http://127.0.0.1:5500/website.html'">Back</button>
+</body>
+</html>
